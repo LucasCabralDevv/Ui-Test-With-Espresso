@@ -18,6 +18,12 @@ class MainActivityTest {
     }
 
     @Test
+    fun test_isTitleTextDisplayed() {
+        val activityScenario = ActivityScenario.launch(MainActivity::class.java)
+        onView(withId(R.id.mainActivityTitleTextView)).check(matches(withText(R.string.text_mainactivity)))
+    }
+
+    @Test
     fun test_visibility_title_nextButton() {
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
         onView(withId(R.id.mainActivityTitleTextView)).check(matches(isDisplayed()))
@@ -25,11 +31,5 @@ class MainActivityTest {
             .check(matches(isDisplayed()))
         onView(withId(R.id.mainActivityNextButton)) // method 2
             .check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
-    }
-
-    @Test
-    fun test_isTitleTextDisplayed() {
-        val activityScenario = ActivityScenario.launch(MainActivity::class.java)
-        onView(withId(R.id.mainActivityTitleTextView)).check(matches(withText(R.string.text_mainactivity)))
     }
 }

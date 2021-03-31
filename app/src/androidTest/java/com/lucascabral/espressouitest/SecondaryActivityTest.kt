@@ -21,14 +21,14 @@ class SecondaryActivityTest {
     }
 
     @Test
-    fun test_visibility_title_backButton() {
-        onView(withId(R.id.secondaryActivityTitleTextView)).check(matches(isDisplayed()))
-        onView(withId(R.id.secondaryActivityBackButton)).check(matches(isDisplayed()))
-    }
-
-    @Test
     fun test_isTitleTextDisplayed() {
         onView(withId(R.id.secondaryActivityTitleTextView))
             .check(matches(withText(R.string.text_secondaryactivity)))
+    }
+
+    @Test
+    fun test_visibility_title_backButton() {
+        onView(withId(R.id.secondaryActivityTitleTextView)).check(matches(isDisplayed()))
+        onView(withId(R.id.secondaryActivityBackButton)).check(matches(isDisplayed()))
     }
 }

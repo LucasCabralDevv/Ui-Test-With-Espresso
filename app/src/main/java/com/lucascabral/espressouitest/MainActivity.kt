@@ -3,14 +3,18 @@ package com.lucascabral.espressouitest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.*
+import com.lucascabral.espressouitest.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var mainBinding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        mainBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(mainBinding.root)
 
-        mainActivityNextButton.setOnClickListener {
+        mainBinding.mainActivityNextButton.setOnClickListener {
             val intent = Intent(this, SecondaryActivity::class.java)
             startActivity(intent)
         }

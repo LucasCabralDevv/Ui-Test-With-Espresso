@@ -2,14 +2,18 @@ package com.lucascabral.espressouitest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_secondary.*
+import com.lucascabral.espressouitest.databinding.ActivitySecondaryBinding
 
 class SecondaryActivity : AppCompatActivity() {
+
+    private lateinit var secondaryBinding: ActivitySecondaryBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_secondary)
+        secondaryBinding = ActivitySecondaryBinding.inflate(layoutInflater)
+        setContentView(secondaryBinding.root)
 
-        secondaryActivityBackButton.setOnClickListener {
+        secondaryBinding.secondaryActivityBackButton.setOnClickListener {
             onBackPressed()
         }
     }
