@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/primaryActivityTextView"
+        android:id="@+id/mainActivityTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
@@ -20,13 +20,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/primaryNextButton"
+        android:id="@+id/mainActivityNextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="@string/text_next"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/primaryActivityTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/mainActivityTitleTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

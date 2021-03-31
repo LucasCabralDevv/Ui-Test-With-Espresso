@@ -9,7 +9,7 @@ class SecondaryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_secondary)
 
-        secondaryBackButton.setOnClickListener {
+        secondaryActivityBackButton.setOnClickListener {
             onBackPressed()
         }
     }
