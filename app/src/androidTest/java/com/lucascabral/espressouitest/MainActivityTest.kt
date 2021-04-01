@@ -2,6 +2,7 @@ package com.lucascabral.espressouitest
 
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
@@ -19,6 +20,24 @@ class MainActivityTest {
     }
 
     @Test
+    fun test_navSecondaryActivity() {
+        val activityScenario = ActivityScenario.launch(MainActivity::class.java)
+        onView(withId(R.id.mainActivityNextButton)).perform(click())
+        onView(withId(R.id.secondaryActivity)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun test_backPress_toMainActivity() {
+        val activityScenario = ActivityScenario.launch(MainActivity::class.java)
+        onView(withId(R.id.mainActivityNextButton)).perform(click())
+        onView(withId(R.id.secondaryActivity)).check(matches(isDisplayed()))
+
+        onView(withId(R.id.secondaryActivityBackButton)).perform(click()) // method 1
+        // pressBack() // method 2
+        onView(withId(R.id.mainActivity)).check(matches(isDisplayed()))
+    }
+
+    @Test
     fun test_isTitleTextDisplayed() {
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
         onView(withId(R.id.mainActivityTitleTextView)).check(matches(withText(R.string.text_mainactivity)))
@@ -32,12 +51,5 @@ class MainActivityTest {
             .check(matches(isDisplayed()))
         onView(withId(R.id.mainActivityNextButton)) // method 2
             .check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
-    }
-
-    @Test
-    fun test_navSecondaryActivity() {
-        val activityScenario = ActivityScenario.launch(MainActivity::class.java)
-        onView(withId(R.id.mainActivityNextButton)).perform(click())
-        onView(withId(R.id.secondaryActivity)).check(matches(isDisplayed()))
     }
 }
