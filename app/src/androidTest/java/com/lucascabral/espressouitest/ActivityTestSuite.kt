@@ -8,5 +8,4 @@ import org.junit.runners.Suite
     MainActivityTest::class,
     SecondaryActivityTest::class
 )
-class ActivityTestSuite {
-}
+class ActivityTestSuite
